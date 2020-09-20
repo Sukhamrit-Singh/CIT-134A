@@ -1,6 +1,5 @@
-#
-# This is hello world
-# 
+#Sukhamrit Singh
+#This my Hello World Program
 
+#Printing Hello World
 print("Hello World")
-print("This is a test")
