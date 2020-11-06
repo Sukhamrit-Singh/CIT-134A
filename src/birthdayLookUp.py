@@ -8,32 +8,57 @@ pathToFile = './src/birthday.json'
 
 # opening the JSON file
 with open(pathToFile, 'r') as openfile: 
-  
     # Reading from json file 
     birthdayJSON = json.load(openfile) 
 
-# HashMap to store data
-birthdayDictionary = {}
+# Boolean to keep the loop running
+keepSearching = True
 
-# loop json list of data and put each name into a dictionary
-for record in birthdayJSON:
+# Loop to keep running and prompting user
+while keepSearching == True:
 
-    # fetch name and birthday
-    name = record["name"]
-    birthday = record["birthday"]
+    # Prompting User to Put Name
+    userInput = input("\nPlease enter your first or last name or enter 'q' to exit: ")
 
-    # Getting Birthday for the name
-    birthdayDictionary[name] = birthday
+    # If user enters "q" then terminates program
+    if (userInput == 'q'):
+        keepSearching = False
+        break
 
-# Prompting User to Put Name
-userInput = input("Please enter your name: ")
+    # Variable to get number of matches for inputed name
+    matchFound = 0
+    print("")
 
-# If statement to check input
-if (userInput in birthdayDictionary) :
+    # loop json list of data and put each name into a dictionary
+    for record in birthdayJSON:
 
-    # Returns birthday if in list
-    print("Your birthday is " + birthdayDictionary[userInput])
-else :
+        # fetch name and birthday
+        name = record["name"]
+        birthday = record["birthday"]
 
-    # displays error message if not in list
-    print("Sorry, your name is not registered in our list")
+        # Spliting up name into first and last name
+        nameArray = name.split(" ")
+        firstName = nameArray[0]
+        lastName = nameArray[1]
+
+        # Booleans to check if first or last name match
+        fnameMatch = False
+        lnameMatch = False
+
+        # Turing both name and user input into upper case
+        #Checking if the input matches the first or last name
+        if ( userInput.upper() == firstName.upper() ):
+            fnameMatch = True
+        
+        if ( userInput.upper() == lastName.upper() ):
+            lnameMatch = True
+
+        # If statement to check input
+        if ( fnameMatch or lnameMatch) :
+            # Returns birthday if in list
+            matchFound += 1
+            print("\t" + name + "'s Date of Birth is: " + birthday)
+    
+    # If no matches print error message
+    if ( matchFound == 0):
+        print("\tSorry no record found for this name")
