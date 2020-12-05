@@ -1,0 +1,44 @@
+{
+    "purchases": [
+        {
+            "name": "Sukhamrit",
+            "email": "sukhamrit@gmail.com",
+            "rowId": "0",
+            "seats": [
+                "a",
+                "b",
+                "c",
+                "d"
+            ],
+            "amount": "348.2"
+        },
+        {
+            "name": "Bob",
+            "email": "bob@gmail.com",
+            "rowId": "2",
+            "seats": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j"
+            ],
+            "amount": "863.0"
+        },
+        {
+            "name": "Sarah",
+            "email": "sarah@gmail.com",
+            "rowId": "0",
+            "seats": [
+                "g",
+                "h"
+            ],
+            "amount": "176.6"
+        }
+    ]
+}
