@@ -19,6 +19,7 @@ n = float(n)
 # asking user for power
 power = input("Please Power: ")
 power = int(power)
+
 # calculate the power and print the value
 value = calculate(n, power, 1)
 print(value)
